@@ -1,0 +1,607 @@
+﻿<Page x:Class="ManagamentCompanyDiplom.Pages.UserProfilePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ManagamentCompanyDiplom.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" 
+      d:DesignWidth="1140"
+      Background="White"
+      Title="UserProfilePage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Source="/Images/Close.png" 
+               Grid.Column="1"
+               Panel.ZIndex="1"
+               MouseUp="Image_MouseUp"
+               Style="{StaticResource imgCloseAutorization}"/>
+
+        <Border>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" 
+                                     EndPoint="1,1">
+                    <GradientStop Color="#54bfb8" 
+                                  Offset="0"/>
+                    <GradientStop Color="#54bfb8" 
+                                  Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid>
+                <Border
+                    Background="Wheat"
+                    Grid.Column="1"
+                    CornerRadius="90"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Center"
+                    BorderThickness="3"
+                    BorderBrush="Black"
+                    Margin="0 20 0 0">
+                    <StackPanel>
+                        <Image 
+                            Source="/Images/mc.png"
+                            Grid.Row="0"
+                            Height="150"
+                            Width="150"/>
+                    </StackPanel>
+                </Border>
+                <StackPanel VerticalAlignment="Top"
+                            Width="285"
+                            Margin="0 190 0 0"
+                            HorizontalAlignment="Center">
+                    <TextBlock 
+                        Text="Пользователь - "
+                        Name="txbProfilePageRole"
+                        Margin="0 0 0 0"
+                        FontSize="25"
+                        Style="{StaticResource titleLeft}"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"/>
+                    <TextBlock 
+                        Text="Имя"
+                        Name="txbName"
+                        Margin="0 0 20 0"
+                        FontSize="25"
+                        Style="{StaticResource titleLeft}"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"/>
+                    <Border 
+                        BorderThickness="1"
+                        BorderBrush="#ffffff"
+                        Margin="0 5 0 0"
+                        Width="200"
+                        Grid.Column="0"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Center"
+                        CornerRadius="5">
+                    </Border>
+                </StackPanel>
+                <StackPanel VerticalAlignment="Center"
+                            HorizontalAlignment="Center">
+                    <StackPanel VerticalAlignment="Top"
+                                HorizontalAlignment="Center"
+                                Margin="0 70 0 0">
+                        <Button Name="btnUserProfilePage" 
+                                Style="{StaticResource designButtonUsersProfile}"
+                                Width="285"
+                                Background="#8c8c8c"
+                                Height="50" 
+                                Margin="0 0 0 0" 
+                                Cursor="Hand">
+                            <WrapPanel Height="50"
+                                       Width="285">
+                                <Image Source="/Images/man.png"
+                                       Margin="40 5 0 0"
+                                       Width="50"
+                                       Height="40"/>
+                                <TextBlock
+                                    Text="Профиль"
+                                    Margin="0 0 0 0"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"/>
+                            </WrapPanel>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Top"
+                                HorizontalAlignment="Center">
+                        <Button Name="btnUserServicesPage"
+                                Style="{StaticResource designButtonUsers}"
+                                Click="btnUserServicesPage_Click"
+                                Width="285"
+                                Height="50" 
+                                Margin="0 0 0 0">
+                            <WrapPanel Height="50"
+                                       Width="285">
+                                <Image Source="/Images/services.png"
+                                       Margin="40 5 0 0"
+                                       Width="50"
+                                       Height="40"/>
+                                <TextBlock
+                                    Text="Услуги"
+                                    Margin="10 0 0 0"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"/>
+                            </WrapPanel>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Top"
+                                HorizontalAlignment="Center">
+                        <Button Name="btnUserPaymentPage"
+                                Style="{StaticResource designButtonUsers}"
+                                Click="btnUserPaymentPage_Click"
+                                Width="285" 
+                                Height="50" 
+                                Margin="0 0 0 0">
+                            <WrapPanel Height="50"
+                                       Width="285">
+                                <Image Source="/Images/payment.png"
+                                       Margin="40 5 0 0"
+                                       Width="50"
+                                       Height="40"/>
+                                <TextBlock
+                                    Text="Оплата"
+                                    Margin="5 0 0 0"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"/>
+                            </WrapPanel>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Top"
+                                HorizontalAlignment="Center">
+                        <Button Name="btnUserChatPage"
+                                Style="{StaticResource designButtonUsers}"
+                                Click="btnUserChatPage_Click"
+                                Width="285"  
+                                Height="50" 
+                                Margin="0 0 0 0">
+                            <WrapPanel Height="50"
+                                       Width="285">
+                                <Image Source="/Images/chat.png"
+                                       Margin="40 5 0 0"
+                                       Width="50"
+                                       Height="40"/>
+                                <TextBlock
+                                    Text="Мои услуги"
+                                    Margin="5 0 0 0"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"/>
+                            </WrapPanel>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel VerticalAlignment="Bottom"
+                            HorizontalAlignment="Center">
+                    <Button Name="btnUserProfileExit"
+                            Style="{StaticResource designButtonUsers}"
+                            Click="btnUserProfileExit_Click"
+                            Width="285" 
+                            Height="50" 
+                            Margin="0 0 0 0">
+                        <WrapPanel Height="50"
+                                   Width="285">
+                            <Image Source="/Images/exit.png"
+                                   Margin="40 5 0 0"
+                                   Width="50"
+                                   Height="40"/>
+                            <TextBlock
+                                Text="Выход"
+                                Margin="25 0 0 0"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+                        </WrapPanel>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <!--предвторой бордер-->
+        <Border 
+    Background="White"
+    Grid.Column="1"
+    BorderThickness="2"
+    BorderBrush="#54bfb8"
+    CornerRadius="10 10 10 10"
+    VerticalAlignment="Top"
+    HorizontalAlignment="Left"
+    Margin="50 15 0 0">
+            <StackPanel>
+                <Grid
+                    Width="250"
+                    Height="250"
+                    Margin="0 0 0 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+                    <TextBlock Text="№ лицевого счёта:"
+                               Style="{StaticResource titleLeft}"
+                               FontSize="18"
+                               Grid.Row="0"
+                               Grid.Column="0"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Center"
+                               Foreground="#54bfb8"
+                               Margin="0 0 0 0"/>
+                    <Border BorderThickness="1"
+                            BorderBrush="#acb0af"
+                            Margin="0 30 0 0"
+                            Width="200"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Center"
+                            CornerRadius="5">
+                        <Grid Margin="7 9">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="/Images/profile.png"
+                                   Height="20"/>
+                            <TextBox x:Name="txbUserMSPersonalAccount"
+                                     Style="{StaticResource TextBox}"/>
+                        </Grid>
+                    </Border>
+                    <TextBlock Text="№ дома:"
+                               Style="{StaticResource titleLeft}"
+                               FontSize="18"
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Center"
+                               Foreground="#54bfb8"
+                               Margin="0 0 0 0"/>
+                    <Border BorderThickness="1"
+                            BorderBrush="#acb0af"
+                            Margin="0 30 0 0"
+                            Width="200"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Center"
+                            CornerRadius="5">
+                        <Grid Margin="7 9">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="/Images/house.png"
+                                   Height="20"/>
+                            <TextBox x:Name="txbUserMSHouse"
+                                     Style="{StaticResource TextBox}"/>
+                        </Grid>
+                    </Border>
+                    <TextBlock Text="№ квартиры:"
+                               Style="{StaticResource titleLeft}"
+                               FontSize="18"
+                               Grid.Row="2"
+                               Grid.Column="0"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Center"
+                               Foreground="#54bfb8"
+                               Margin="0 0 0 0"/>
+                    <Border BorderThickness="1"
+                            BorderBrush="#acb0af"
+                            Margin="0 30 0 0"
+                            Width="200"
+                            Grid.Row="2"
+                            Grid.Column="0"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Center"
+                            CornerRadius="5">
+                        <Grid Margin="7 9">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="/Images/flat.png"
+                                   Height="20"/>
+                            <TextBox x:Name="txbUserMSFlat"
+                                     Style="{StaticResource TextBox}"/>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </StackPanel>
+        </Border>
+        <!--Второй бордер-->
+        <Border
+            Background="Wheat"
+            Grid.Column="1"
+            CornerRadius="90"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Center"
+            BorderThickness="3"
+            BorderBrush="Black"
+            Margin="400 20 0 0">
+            <StackPanel>
+                <Image 
+                    Source="/Images/mc.png"
+                    Grid.Row="0"
+                    Height="150"
+                    Width="150"
+                        />
+            </StackPanel>
+        </Border>
+        <Border
+            Grid.Column="1"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Margin="400 -250 0 0">
+            <StackPanel>
+                <Button Content="Загрузить изображение" 
+                        Name="btnUserProfileSaveChangedImage"
+                        Click="btnUserProfileSaveChangedImage_Click"
+                        Style="{StaticResource designButtonSaveChangedImage}"/>
+            </StackPanel>
+        </Border>
+        <!--Третий бордер-->
+            <Border 
+                Background="White"
+                Grid.Column="1"
+                CornerRadius="0 10 10 0"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                Margin="0 250 0 0">
+            <StackPanel>
+                <Grid
+                Width="700"
+                Height="400"
+                Margin="0 0 0 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="Конфиденциальная информация"
+                               Style="{StaticResource titleLeft}"
+                               FontSize="30"
+                               Grid.Row="0"
+                               Grid.ColumnSpan="4"
+                               VerticalAlignment="Center"
+                               HorizontalAlignment="Center"
+                               Foreground="#54bfb8"
+                               Margin="0 0 0 0"/>
+                    <Image Source="/Images/zamok.png"
+                           Width="40"
+                           Grid.Column="2"
+                           Margin="70 0 0 0"
+                           Height="30"
+                           />
+                    <Border 
+                        BorderThickness="1"
+                        BorderBrush="#acb0af"
+                        Margin="-230 75 0 0"
+                        Width="515"
+                        Grid.ColumnSpan="2"
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        VerticalAlignment="Top"
+                        HorizontalAlignment="Center"
+                        CornerRadius="5">
+                    </Border>
+                    <TextBlock Text="Фамилия:"
+                               Style="{StaticResource titleLeft}"
+                               FontSize="18"
+                               Grid.Row="1"
+                               Grid.Column="0"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Left"
+                               Foreground="#54bfb8"
+                               Margin="20 0 0 0"/>
+                    <TextBlock Text="Имя:"
+                               Style="{StaticResource titleLeft}"
+                               FontSize="18"
+                               Grid.Row="1"
+                               Grid.Column="1"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Left"
+                               Foreground="#54bfb8"
+                               Margin="20 0 0 0"/>
+                    <TextBlock Text="Отчество:"
+                               Style="{StaticResource titleLeft}"
+                               FontSize="18"
+                               Grid.Row="1"
+                               Grid.Column="2"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Left"
+                               Foreground="#54bfb8"
+                               Margin="20 0 0 0"/>
+                    <TextBlock Text="Номер телефона:"
+                               Style="{StaticResource titleLeft}"
+                               FontSize="18"
+                               Grid.Row="2"
+                               Grid.Column="0"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Left"
+                               Foreground="#54bfb8"
+                               Margin="20 0 0 0"/>
+                    <TextBlock Text="Логин:"
+                               Style="{StaticResource titleLeft}"
+                               FontSize="18"
+                               Grid.Row="2"
+                               Grid.Column="1"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Left"
+                               Foreground="#54bfb8"
+                               Margin="20 0 0 0"/>
+                    <TextBlock Text="Пароль:"
+                               Style="{StaticResource titleLeft}"
+                               FontSize="18"
+                               Grid.Row="2"
+                               Grid.Column="2"
+                               VerticalAlignment="Top"
+                               HorizontalAlignment="Left"
+                               Foreground="#54bfb8"
+                               Margin="20 0 0 0"/>
+                    <Border BorderThickness="1"
+                        BorderBrush="#acb0af"
+                        Margin="0 0 0 0"
+                        Width="200"
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        CornerRadius="5">
+                        <Grid Margin="7 9">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="/Images/Login.png"
+                               Height="20"/>
+                            <TextBox x:Name="txbUserProfileSurname"
+                                 Style="{StaticResource TextBox}"/>
+                        </Grid>
+                    </Border>
+                    <Border BorderThickness="1"
+                        BorderBrush="#acb0af"
+                        Margin="0 0 0 0"
+                        Width="200"
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        CornerRadius="5">
+                        <Grid Margin="7 9">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="/Images/Login.png"
+                               Height="20"/>
+                            <TextBox x:Name="txbUserProfileFirstname"
+                                 Style="{StaticResource TextBox}"/>
+                        </Grid>
+                    </Border>
+                    <Border BorderThickness="1"
+                        BorderBrush="#acb0af"
+                        Margin="0 0 0 0"
+                        Width="200"
+                        Grid.Row="1"
+                        Grid.Column="2"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        CornerRadius="5">
+                        <Grid Margin="7 9">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="/Images/Login.png"
+                               Height="20"/>
+                            <TextBox x:Name="txbUserProfilePatronymic"
+                                 Style="{StaticResource TextBox}"/>
+                        </Grid>
+                    </Border>
+                    <Border BorderThickness="1"
+                        BorderBrush="#acb0af"
+                        Margin="0 0 0 0"
+                        Width="200"
+                        Grid.Row="2"
+                        Grid.Column="0"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        CornerRadius="5">
+                        <Grid Margin="7 9">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="/Images/phone.png"
+                               Height="20"/>
+                            <TextBox x:Name="txbUserProfilePhone"
+                                 Style="{StaticResource TextBox}"/>
+                        </Grid>
+                    </Border>
+                    <Border BorderThickness="1"
+                        BorderBrush="#acb0af"
+                        Margin="0 0 0 0"
+                        Width="200"
+                        Grid.Row="2"
+                        Grid.Column="1"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        CornerRadius="5">
+                        <Grid Margin="7 9">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="/Images/logincreate.png"
+                               Height="20"/>
+                            <TextBox x:Name="txbUserProfileLogin"
+                                 Style="{StaticResource TextBox}"/>
+                        </Grid>
+                    </Border>
+                    <Border BorderThickness="1"
+                        BorderBrush="#acb0af"
+                        Margin="0 0 0 0"
+                        Width="200"
+                        Grid.Row="2"
+                        Grid.Column="2"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"
+                        CornerRadius="5">
+                        <Grid Margin="7 9">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Image Source="/Images/password.png"
+                               Height="20"/>
+                            <PasswordBox x:Name="psbUserProfilePassword"
+                                 Style="{StaticResource TextBox}"
+                                         PasswordChanged="psbUserProfilePassword_PasswordChanged"/>
+                            <TextBox x:Name="txtPasswordBox"
+                                     Style="{StaticResource TextBox}"
+                                     TextChanged="txtPasswordBox_TextChanged"
+                                     Visibility="Collapsed"/>
+                            <Image 
+                                Name="imgOpenEye"
+                                MouseDown="imgOpenEye_MouseDown"
+                                Source="/Images/openeye.png"
+                                Grid.Column="2"
+                                Visibility="Collapsed"
+                                Height="20"/>
+                            <Image 
+                                Name="imgClosedEye"
+                                MouseDown="imgClosedEye_MouseDown"
+                                Source="/Images/closeeyes.png"
+                                Grid.Column="2"
+                                Visibility="Visible"
+                                Height="20"/>
+                        </Grid>
+                    </Border>
+
+                    <Button Content="Сохранить изменения" 
+                        Name="btnUserProfileSaveChanged"
+                        Grid.Row="3"
+                        Grid.ColumnSpan="3"
+                        Click="btnUserProfileSaveChanged_Click"
+                        Style="{StaticResource designButtonSaveChanged}"/>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

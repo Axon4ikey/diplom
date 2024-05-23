@@ -1,0 +1,501 @@
+﻿<Page x:Class="ManagamentCompanyDiplom.Pages.AdminPages.AdminCreateUsersPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ManagamentCompanyDiplom.Pages.AdminPages"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" 
+      Background="White"
+      d:DesignWidth="1140"
+      Title="AdminCreateUsersPage">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Source="/Images/Close.png" 
+       Grid.Column="1"
+       Panel.ZIndex="1"
+               MouseUp="Image_MouseUp"
+       Style="{StaticResource imgCloseAutorization}"/>
+
+        <Border>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" 
+                             EndPoint="1,1">
+                    <GradientStop Color="#54bfb8" 
+                          Offset="0"/>
+                    <GradientStop Color="#54bfb8" 
+                          Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid>
+                <Border
+            Background="Wheat"
+            Grid.Column="1"
+            CornerRadius="90"
+            VerticalAlignment="Top"
+            HorizontalAlignment="Center"
+            BorderThickness="3"
+            BorderBrush="Black"
+            Margin="0 20 0 0">
+                    <StackPanel>
+                        <Image 
+                    Source="/Images/mc.png"
+                    Grid.Row="0"
+                    Height="150"
+                    Width="150"/>
+                    </StackPanel>
+                </Border>
+                <StackPanel VerticalAlignment="Top"
+                    Width="285"
+                    Margin="0 190 0 0"
+                    HorizontalAlignment="Center">
+                    <TextBlock 
+                Text="Администратор - "
+                Name="txbProfilePageRole"
+                Margin="0 0 0 0"
+                FontSize="25"
+                Style="{StaticResource titleLeft}"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"/>
+                    <TextBlock 
+                Text="Имя"
+                Name="txbAdminName"
+                Margin="0 0 20 0"
+                FontSize="25"
+                Style="{StaticResource titleLeft}"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"/>
+                    <Border 
+                BorderThickness="1"
+                BorderBrush="#ffffff"
+                Margin="0 5 0 0"
+                Width="200"
+                Grid.Column="0"
+                VerticalAlignment="Top"
+                HorizontalAlignment="Center"
+                CornerRadius="5">
+                    </Border>
+                </StackPanel>
+                <StackPanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                            Margin="0 220 0 0">
+                    <StackPanel VerticalAlignment="Top"
+                        HorizontalAlignment="Center"
+                        Margin="0 0 0 0">
+                        <Button Name="btnAdminCreateUsersProfilePage"
+                        Style="{StaticResource designButtonUsers}"
+                                Click="btnAdminCreateUsersProfilePage_Click"
+                        Width="285"
+                        Height="50" 
+                        Margin="0 0 0 0" 
+                        Cursor="Hand">
+                            <WrapPanel Height="50"
+                               Width="285">
+                                <Image Source="/Images/man.png"
+                               Margin="40 5 0 0"
+                               Width="50"
+                               Height="40"/>
+                                <TextBlock
+                            Text="Профиль"
+                            Margin="0 0 0 0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"/>
+                            </WrapPanel>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Top"
+                        HorizontalAlignment="Center">
+                        <Button Name="btnAdminCreateUsersApplicationPage"
+                        Style="{StaticResource designButtonUsers}"
+                                Click="btnAdminCreateUsersApplicationPage_Click"
+                        Width="285"
+                        Height="50" 
+                        Margin="0 0 0 0">
+                            <WrapPanel Height="50"
+                               Width="285">
+                                <Image Source="/Images/application.png"
+                               Margin="40 5 0 0"
+                               Width="50"
+                               Height="40"/>
+                                <TextBlock
+                            Text="Заявки на у/з"
+                            Margin="5 0 0 0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"/>
+                            </WrapPanel>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Top"
+                                HorizontalAlignment="Center">
+                        <Button Name="btnAdminCreateUsersApplicationServicesPage"
+                                Click="btnAdminCreateUsersApplicationServicesPage_Click"
+                                Style="{StaticResource designButtonUsers}"
+                                Width="285"
+                                Height="50" 
+                                Margin="0 0 0 0">
+                            <WrapPanel Height="50"
+                                       Width="285">
+                                <Image Source="/Images/ac.png"
+                                       Margin="40 5 0 0"
+                                       Width="50"
+                                       Height="40"/>
+                                <TextBlock
+                                    Text="Заявки на у-и"
+                                    Margin="5 0 0 0"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"/>
+                            </WrapPanel>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Top"
+                        HorizontalAlignment="Center">
+                        <Button Name="btnAdminCreateUsersUsersPage"
+                        Style="{StaticResource designButtonUsers}"
+                        Click="btnAdminCreateUsersUsersPage_Click"
+                        Width="285" 
+                        Height="50" 
+                        Margin="0 0 0 0">
+                            <WrapPanel Height="50"
+                               Width="285">
+                                <Image Source="/Images/users.png"
+                               Margin="40 5 0 0"
+                               Width="50"
+                               Height="40"/>
+                                <TextBlock
+                            Text="Пользователи"
+                            Margin="5 0 0 0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"/>
+                            </WrapPanel>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Top"
+                            HorizontalAlignment="Center">
+                        <Button Name="btnAdminCreateUsersPage"
+                            Style="{StaticResource designButtonUsers}"
+                                Background="#8c8c8c"
+                            Width="285" 
+                            Height="50" 
+                            Margin="0 0 0 0">
+                            <WrapPanel Height="50"
+                                   Width="285">
+                                <Image Source="/Images/create.png"
+                                   Margin="35 0 0 0"
+                                   Width="60"
+                                   Height="50"/>
+                                <TextBlock
+                                Text="Создать у/з"
+                                Margin="2 0 0 0"
+                                VerticalAlignment="Center"
+                                HorizontalAlignment="Center"/>
+                            </WrapPanel>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Top"
+                                HorizontalAlignment="Center">
+                        <Button Name="btnAdminCreateUsersServcesPage"
+                                Click="btnAdminCreateUsersServcesPage_Click"
+                                Style="{StaticResource designButtonUsers}"
+                                Width="285" 
+                                Height="50" 
+                                Margin="0 0 0 0">
+                            <WrapPanel Height="50"
+                                       Width="285">
+                                <Image Source="/Images/services.png"
+                                       Margin="40 3 0 0"
+                                       Width="55"
+                                       Height="45"/>
+                                <TextBlock
+                                    Text="Услуги"
+                                    Margin="5 0 0 0"
+                                    VerticalAlignment="Center"
+                                    HorizontalAlignment="Center"/>
+                            </WrapPanel>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Top"
+                        HorizontalAlignment="Center">
+                        <Button Name="btnAdminCreateUsersChatPage"
+                        Style="{StaticResource designButtonUsers}"
+                        Click="btnAdminCreateUsersChatPage_Click"
+                        Width="285"  
+                        Height="50" 
+                        Margin="0 0 0 0">
+                            <WrapPanel Height="50"
+                               Width="285">
+                                <Image Source="/Images/chat.png"
+                               Margin="40 5 0 0"
+                               Width="50"
+                               Height="40"/>
+                                <TextBlock
+                            Text="Оплаты"
+                            Margin="10 0 0 0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"/>
+                            </WrapPanel>
+                        </Button>
+                    </StackPanel>
+                </StackPanel>
+                <StackPanel VerticalAlignment="Bottom"
+                    HorizontalAlignment="Center">
+                    <Button Name="btnAdminCreateUsersExit"
+                    Style="{StaticResource designButtonUsers}"
+                            Click="btnAdminCreateUsersExit_Click"
+                    Width="285" 
+                    Height="50" 
+                    Margin="0 0 0 0">
+                        <WrapPanel Height="50"
+                           Width="285">
+                            <Image Source="/Images/exit.png"
+                           Margin="40 5 0 0"
+                           Width="50"
+                           Height="40"/>
+                            <TextBlock
+                        Text="Выход"
+                        Margin="25 0 0 0"
+                        VerticalAlignment="Center"
+                        HorizontalAlignment="Center"/>
+                        </WrapPanel>
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <!--Второй бордер-->
+        <Border 
+        Background="White"
+        Grid.Column="1"
+        VerticalAlignment="Top"
+        HorizontalAlignment="Center"
+        Margin="0 50 0 0">
+            <StackPanel VerticalAlignment="Center"
+                    HorizontalAlignment="Center">
+                <TextBlock Text="Создай у/з, у нас пополнение в семье!"
+                       Style="{StaticResource titleLeft}"
+                       FontSize="30"
+                       Grid.ColumnSpan="4"
+                       VerticalAlignment="Top"
+                       HorizontalAlignment="Center"
+                       Foreground="#54bfb8"
+                       Margin="10 0 0 0"/>
+                <Image Source="/Images/family.png"
+                   Width="60"
+                   Height="60"
+                   VerticalAlignment="Center"
+                   HorizontalAlignment="Left"
+                   Margin="-50 -50 0 0"/>
+            </StackPanel>
+        </Border>
+        <Border 
+        BorderThickness="1"
+        BorderBrush="#acb0af"
+        Margin="0 95 0 0"
+        Width="650"
+        Grid.Column="1"
+        VerticalAlignment="Top"
+        HorizontalAlignment="Center"
+        CornerRadius="5">
+        </Border>
+        <!--третий бордер-->
+        <Border 
+            Background="White"
+            Grid.Column="1"
+            BorderThickness="2"
+            BorderBrush="#54bfb8"
+            CornerRadius="10 10 10 10"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Center"
+            Margin="0 250 0 0">
+            <StackPanel>
+                <Grid
+                    Width="700"
+                    Height="350"
+                    Margin="0 0 0 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="150"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    
+                    <Border BorderThickness="1"
+                            BorderBrush="#acb0af"
+                            Margin="0 0 0 0"
+                            Width="200"
+                            Grid.Row="0"
+                            Grid.Column="0"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            CornerRadius="5">
+                        <Grid Margin="7 9">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="/Images/Login.png"
+                                   Height="20"/>
+                            <TextBlock x:Name="txtAdminUsersCreateSurname"
+                                       MouseDown="txtAdminUsersCreateSurname_MouseDown"
+                                       Text="Введите фамилию"
+                                       Style="{StaticResource textHint}"/>
+                            <TextBox x:Name="txbAdminUsersCreateSurname"
+                                     TextChanged="txbAdminUsersCreateSurname_TextChanged"
+                             Style="{StaticResource TextBox}"/>
+                        </Grid>
+                    </Border>
+                    
+                    <Border BorderThickness="1"
+                    BorderBrush="#acb0af"
+                    Margin="0 0 0 0"
+                    Width="200"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    VerticalAlignment="Center"
+                    HorizontalAlignment="Center"
+                    CornerRadius="5">
+                        <Grid Margin="7 9">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="/Images/Login.png"
+                           Height="20"/>
+                            <TextBlock x:Name="txtAdminUsersCreateFirstname"
+                                       MouseDown="txtAdminUsersCreateFirstname_MouseDown"
+                                       Text="Введите имя"
+                                       Style="{StaticResource textHint}"/>
+                            <TextBox x:Name="txbAdminUsersCreateFirstname"
+                                     TextChanged="txbAdminUsersCreateFirstname_TextChanged"
+                                     Style="{StaticResource TextBox}"/>
+                        </Grid>
+                    </Border>
+                    
+                    <Border BorderThickness="1"
+                            BorderBrush="#acb0af"
+                            Margin="0 0 0 0"
+                            Width="200"
+                            Grid.Row="0"
+                            Grid.Column="2"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            CornerRadius="5">
+                        <Grid Margin="7 9">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="/Images/Login.png"
+                                   Height="20"/>
+                            <TextBlock x:Name="txtAdminCreateUsersPatronymic"
+                                       MouseDown="txtAdminCreateUsersPatronymic_MouseDown"
+                                       Text="Введите отчество"
+                                       Style="{StaticResource textHint}"/>
+                            <TextBox x:Name="txbAdminCreateUsersPatronymic"
+                                     TextChanged="txbAdminCreateUsersPatronymic_TextChanged"
+                                     Style="{StaticResource TextBox}"/>
+                        </Grid>
+                    </Border>
+                    
+                    <Border BorderThickness="1"
+                            BorderBrush="#acb0af"
+                            Margin="0 0 0 0"
+                            Width="200"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="2"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            CornerRadius="5">
+                        <Grid Margin="7 9">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="/Images/logincreate.png"
+                                   Height="20"/>
+                            <TextBlock x:Name="txtAdminCreateUsersLogin"
+                                       MouseDown="txtAdminCreateUsersLogin_MouseDown"
+                                       Text="Придумайте логин"
+                                       Style="{StaticResource textHint}"/>
+                            <TextBox x:Name="txbAdminCreateUsersLogin"
+                                     TextChanged="txbAdminCreateUsersLogin_TextChanged"
+                                     Style="{StaticResource TextBox}"/>
+                        </Grid>
+                    </Border>
+                    
+                    <Border BorderThickness="1"
+                            BorderBrush="#acb0af"
+                            Margin="220 0 0 0"
+                            Width="200"
+                            Grid.Row="1"
+                            Grid.Column="0"
+                            Grid.ColumnSpan="4"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Center"
+                            CornerRadius="5">
+                        <Grid Margin="7 9">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="/Images/password.png"
+                                   Height="20"/>
+                            <TextBlock x:Name="txtAdminCreateUsersPassword"
+                                       MouseDown="txtAdminCreateUsersPassword_MouseDown"
+                                       Text="Придумайте пароль"
+                                       Style="{StaticResource textHint}"/>
+                            <PasswordBox x:Name="psbAdminCreateUsersPassword"
+                                         PasswordChanged="psbAdminCreateUsersPassword_PasswordChanged"
+                                         Style="{StaticResource TextBox}"/>
+                            <TextBox x:Name="txtPasswordBox"
+                                     Style="{StaticResource TextBox}"
+                                     TextChanged="txtPasswordBox_TextChanged"
+                                     Visibility="Collapsed"/>
+                            <Image 
+                                 Name="imgOpenEye"
+                                MouseDown="imgOpenEye_MouseDown"
+                                Source="/Images/openeye.png"
+                                Grid.Column="2"
+                                Visibility="Collapsed"
+                                Height="20"/>
+                            <Image 
+                                Name="imgClosedEye"
+                                MouseDown="imgClosedEye_MouseDown"
+                                Source="/Images/closeeyes.png"
+                                Grid.Column="2"
+                                Visibility="Visible"
+                                Height="20"/>
+                        </Grid>
+                    </Border>
+                    <Button Content="Сгенерировать пароль" 
+                            Name="btnGeneratePassword"
+                            Grid.Row="1"
+                            FontSize="12"
+                            Margin="220 -40 0 0"
+                            Height="50"
+                            Width="200"
+                            Grid.RowSpan="2"
+                            Grid.ColumnSpan="3"
+                            Click="btnGeneratePassword_Click"
+                            Style="{StaticResource designButtonSaveChanged}"/>
+
+                    <Button Content="Выдать логин и пароль" 
+                            Name="btnAdminCreateUsersSaveChanged"
+                            Grid.Row="2"
+                            Grid.ColumnSpan="3"
+                            Click="btnAdminCreateUsersSaveChanged_Click" 
+                            Style="{StaticResource designButtonSaveChanged}"/>
+                </Grid>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

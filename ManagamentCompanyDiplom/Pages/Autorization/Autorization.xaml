@@ -1,0 +1,148 @@
+﻿<Page x:Class="ManagamentCompanyDiplom.Pages.Autorization"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+      xmlns:local="clr-namespace:ManagamentCompanyDiplom.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" 
+      d:DesignWidth="1140"
+      Background="white"
+      Title="Autorization">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="1.5*"/>
+        </Grid.ColumnDefinitions>
+
+        <Image Source="/Images/Close.png" 
+               Grid.Column="1"
+               Panel.ZIndex="1"
+               MouseUp="Image_MouseUp"
+               Style="{StaticResource imgCloseAutorization}"/>
+
+        <Border>
+            <Border.Background>
+                <LinearGradientBrush StartPoint="0,0" 
+                                     EndPoint="1,1">
+                    <GradientStop Color="#54bfb8" Offset="0"/>
+                    <GradientStop Color="#54bfb8" Offset="1"/>
+                </LinearGradientBrush>
+            </Border.Background>
+            <Grid>
+                <StackPanel VerticalAlignment="Center"
+                HorizontalAlignment="Center">
+                    <TextBlock Text="Добро пожаловать"
+                   Margin="0 0 0 0"
+                   Style="{StaticResource titleLeft}"/>
+                    <TextBlock Text="в"
+                   Style="{StaticResource titleLeft}"/>
+                    <TextBlock Text="УК «РЭЦ»"
+                   Style="{StaticResource titleLeft}"/>
+                    <Image Source="/Images/mc.png" 
+                           Grid.Column="0"
+                           Panel.ZIndex="1"
+                           Style="{StaticResource imgManagmentCompany}"/>
+                    <Button Name="btnSignUPLeft"
+                            Style="{StaticResource designButton}"
+                            Margin="0 50 0 0"
+                            Content="Подать заявку"
+                            Click="btnSignUPLeft_Click"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Border Background="#ffffff" 
+                Grid.Column="1"
+                CornerRadius="0 10 10 0"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                MouseDown="Border_MouseDown">
+            <StackPanel>
+                <TextBlock Text="Авторизация"
+                           Style="{StaticResource titleLeft}"
+                           Foreground="#54bfb8"
+                           Margin="0 70 0 0"/>
+                <Border 
+                    BorderThickness="1"
+                    BorderBrush="#acb0af"
+                    Margin="0 5 0 0"
+                    Width="300"
+                    Grid.Column="1"
+                    VerticalAlignment="Top"
+                    HorizontalAlignment="Center"
+                    CornerRadius="5">
+                </Border>
+                <Border BorderThickness="1"
+                        BorderBrush="#acb0af"
+                        Margin="0 70 0 0"
+                        Width="400"
+                        CornerRadius="5">
+                    <Grid Margin="7 9">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Source="/Images/Login.png"
+                               Height="20"/>
+                        <TextBlock x:Name="txtLogin"
+                                   MouseDown="txtLogin_MouseDown"
+                                   Text="Введите логин"
+                                   Style="{StaticResource textHint}"/>
+                        <TextBox x:Name="txbLogin"
+                                 TextChanged="txbLogin_TextChanged"
+                                 Style="{StaticResource TextBox}"
+                                 />
+                    </Grid>
+                </Border>
+                <Border BorderThickness="1"
+                        BorderBrush="#acb0af"
+                        Margin="0 30 0 0"
+                        Width="400"
+                        CornerRadius="5">
+                    <Grid Margin="7 9">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Image Source="/Images/Password.png"
+                               Height="20"/>
+                        <TextBlock x:Name="txtPassword"
+                       MouseDown="txtPassword_MouseDown"
+                       Text="Введите пароль"
+                       Style="{StaticResource textHint}"/>
+                        <PasswordBox x:Name="txbPassword"
+                                     Style="{StaticResource TextBox}"
+                                    PasswordChanged="txbPassword_PasswordChanged"/>
+                        <TextBox x:Name="txtPasswordBox"
+                                 Style="{StaticResource TextBox}"
+                                 TextChanged="txtPasswordBox_TextChanged"
+                                 Visibility="Collapsed"/>
+                        <Image 
+                            Name="imgOpenEye"
+                            MouseDown="imgOpenEye_MouseDown"
+                            Source="/Images/openeye.png"
+                               Grid.Column="2"
+                            Visibility="Collapsed"
+                               Height="20"/>
+                        <Image 
+                            Name="imgClosedEye"
+                            MouseDown="imgClosedEye_MouseDown"
+                            Source="/Images/closeeyes.png"
+                               Grid.Column="2"
+                            Visibility="Visible"
+                               Height="20"/>
+                    </Grid>
+                </Border>
+
+                <Button Content="Войти" 
+                        Name="btnAutorization"
+                        Click="btnAutorization_Click"
+                        Style="{StaticResource designButtonSignUP}"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+</Page>

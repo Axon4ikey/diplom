@@ -1,0 +1,320 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EE8C013F-CB16-4DA1-9A5D-4CF4C59956DD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>ManagamentCompanyDiplom</RootNamespace>
+    <AssemblyName>ManagamentCompanyDiplom</AssemblyName>
+    <TargetFrameworkVersion>v4.8.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="ModelBD\Accruals.cs">
+      <DependentUpon>ModelDiplomBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBD\ApplicationsForServices.cs">
+      <DependentUpon>ModelDiplomBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Classes\UserControlClass.cs" />
+    <Compile Include="ModelBD\Flat.cs">
+      <DependentUpon>ModelDiplomBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBD\House.cs">
+      <DependentUpon>ModelDiplomBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBD\MetersData.cs">
+      <DependentUpon>ModelDiplomBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBD\ModelDiplomBD.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDiplomBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBD\UsersStatusConfirmation.cs">
+      <DependentUpon>ModelDiplomBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminPages\AdminAddServicesPage.xaml.cs">
+      <DependentUpon>AdminAddServicesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminPages\AdminApplicationPage.xaml.cs">
+      <DependentUpon>AdminApplicationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminPages\AdminApplicationServicesPage.xaml.cs">
+      <DependentUpon>AdminApplicationServicesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminPages\AdminCreateUsersPage.xaml.cs">
+      <DependentUpon>AdminCreateUsersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminPages\AdminProfilePage.xaml.cs">
+      <DependentUpon>AdminProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminPages\AdminServicesPage.xaml.cs">
+      <DependentUpon>AdminServicesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\AdminPages\AdminUsersPage.xaml.cs">
+      <DependentUpon>AdminUsersPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\ApplicationForm\ApplicationForm.xaml.cs">
+      <DependentUpon>ApplicationForm.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserPages\UserMyServicesPage.xaml.cs">
+      <DependentUpon>UserMyServicesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserPages\UserPaymentPage.xaml.cs">
+      <DependentUpon>UserPaymentPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserPages\UserProfilePage.xaml.cs">
+      <DependentUpon>UserProfilePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\UserPages\UserServicesPage.xaml.cs">
+      <DependentUpon>UserServicesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBD\Payments.cs">
+      <DependentUpon>ModelDiplomBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBD\PersonalАccount.cs">
+      <DependentUpon>ModelDiplomBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBD\Roles.cs">
+      <DependentUpon>ModelDiplomBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBD\Services.cs">
+      <DependentUpon>ModelDiplomBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBD\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>ModelDiplomBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBD\sp_helpdiagrams_Result.cs">
+      <DependentUpon>ModelDiplomBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBD\StatusApplicationForServices.cs">
+      <DependentUpon>ModelDiplomBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBD\sysdiagrams.cs">
+      <DependentUpon>ModelDiplomBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBD\TypeOfPersonalAccount.cs">
+      <DependentUpon>ModelDiplomBD.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBD\Users.cs">
+      <DependentUpon>ModelDiplomBD.tt</DependentUpon>
+    </Compile>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Classes\AppData.cs" />
+    <Compile Include="Classes\FrameApp.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="Pages\AdminPages\AdminAddServicesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AdminPages\AdminApplicationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AdminPages\AdminApplicationServicesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AdminPages\AdminCreateUsersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AdminPages\AdminProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AdminPages\AdminServicesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\AdminPages\AdminUsersPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\ApplicationForm\ApplicationForm.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Autorization\Autorization.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UserPages\UserMyServicesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UserPages\UserPaymentPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UserPages\UserProfilePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UserPages\UserServicesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ModelBD\ModelDiplomBD.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDiplomBD.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelBD\ModelDiplomBD.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ModelDiplomBD.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Autorization\Autorization.xaml.cs">
+      <DependentUpon>Autorization.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EntityDeploy Include="ModelBD\ModelDiplomBD.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>ModelDiplomBD.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="ModelBD\ModelDiplomBD.edmx.diagram">
+      <DependentUpon>ModelDiplomBD.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\login.png" />
+    <Resource Include="Images\password.png" />
+    <Resource Include="Images\Close.png" />
+    <Resource Include="Images\phone.png" />
+    <Resource Include="Images\house.png" />
+    <Resource Include="Images\flat.png" />
+    <Resource Include="Images\mc.png" />
+    <Resource Include="Images\profile.png" />
+    <Resource Include="Images\man.png" />
+    <Resource Include="Images\services.png" />
+    <Resource Include="Images\payment.png" />
+    <Resource Include="Images\chat.png" />
+    <Resource Include="Images\exit.png" />
+    <Resource Include="Images\application.png" />
+    <Resource Include="Images\galochka.png" />
+    <Resource Include="Images\zamok.png" />
+    <Resource Include="Images\search.png" />
+    <Resource Include="Images\searchtxb.png" />
+    <Resource Include="Images\updown.png" />
+    <Resource Include="Images\users.png" />
+    <Resource Include="Images\yes.png" />
+    <Resource Include="Images\create.png" />
+    <Resource Include="Images\family.png" />
+    <Resource Include="Images\logincreate.png" />
+    <Resource Include="Images\perdan.png" />
+    <Resource Include="Images\ac.png" />
+    <Resource Include="Images\ns.png" />
+    <Resource Include="Images\ratess.png" />
+    <Resource Include="Images\back.png" />
+    <Resource Include="Images\reset.png" />
+    <Resource Include="Images\openeye.png" />
+    <Resource Include="Images\closeeyes.png" />
+    <Content Include="ModelBD\ModelDiplomBD.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ModelDiplomBD.Context.cs</LastGenOutput>
+      <DependentUpon>ModelDiplomBD.edmx</DependentUpon>
+    </Content>
+    <Content Include="ModelBD\ModelDiplomBD.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>ModelDiplomBD.edmx</DependentUpon>
+      <LastGenOutput>ModelDiplomBD.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

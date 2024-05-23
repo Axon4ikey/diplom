@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6773ca0c8679485ebeaecf99ec92da81" Name="Diagram1" ZoomLevel="46">
+        <EntityTypeShape EntityType="DiplomJobModel.Accruals" Width="1.5" PointX="8.25" PointY="8.75" />
+        <EntityTypeShape EntityType="DiplomJobModel.ApplicationsForServices" Width="1.5" PointX="8.25" PointY="4.25" />
+        <EntityTypeShape EntityType="DiplomJobModel.Flat" Width="1.5" PointX="5.25" PointY="4.375" />
+        <EntityTypeShape EntityType="DiplomJobModel.House" Width="1.5" PointX="3" PointY="0.75" />
+        <EntityTypeShape EntityType="DiplomJobModel.MetersData" Width="1.5" PointX="12.75" PointY="4.625" />
+        <EntityTypeShape EntityType="DiplomJobModel.Payments" Width="1.5" PointX="10.5" PointY="8.75" />
+        <EntityTypeShape EntityType="DiplomJobModel.PersonalАccount" Width="1.5" PointX="10.5" PointY="4.125" />
+        <EntityTypeShape EntityType="DiplomJobModel.Roles" Width="1.5" PointX="0.75" PointY="1.875" />
+        <EntityTypeShape EntityType="DiplomJobModel.Services" Width="1.5" PointX="6" PointY="1.625" />
+        <EntityTypeShape EntityType="DiplomJobModel.StatusApplicationForServices" Width="1.5" PointX="6" PointY="8.125" />
+        <EntityTypeShape EntityType="DiplomJobModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="9" />
+        <EntityTypeShape EntityType="DiplomJobModel.TypeOfPersonalAccount" Width="1.5" PointX="8.25" PointY="1.375" />
+        <EntityTypeShape EntityType="DiplomJobModel.Users" Width="1.5" PointX="3" PointY="3.875" />
+        <EntityTypeShape EntityType="DiplomJobModel.UsersStatusConfirmation" Width="1.5" PointX="0.75" PointY="4.875" />
+        <AssociationConnector Association="DiplomJobModel.FK_Payments_Accruals" />
+        <AssociationConnector Association="DiplomJobModel.FK_PersonalАccount_Accruals" />
+        <AssociationConnector Association="DiplomJobModel.FK_ApplicationsForServices_Services" />
+        <AssociationConnector Association="DiplomJobModel.FK_ApplicationsForServices_StatusApplicationForServices" />
+        <AssociationConnector Association="DiplomJobModel.FK_ApplicationsForServices_Users" />
+        <AssociationConnector Association="DiplomJobModel.FK_Flat_House" />
+        <AssociationConnector Association="DiplomJobModel.FK_Flat_Users" />
+        <AssociationConnector Association="DiplomJobModel.FK_PersonalАccount_Flat" />
+        <AssociationConnector Association="DiplomJobModel.FK_MetersData_PersonalАccount" />
+        <AssociationConnector Association="DiplomJobModel.FK_PersonalАccount_TypeOfPersonalAccount" />
+        <AssociationConnector Association="DiplomJobModel.FK_Users_Roles" />
+        <AssociationConnector Association="DiplomJobModel.FK_Users_UsersStatusConfirmation" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
