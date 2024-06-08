@@ -2,6 +2,7 @@
 using ManagamentCompanyDiplom.ModelBD;
 using ManagamentCompanyDiplom.Pages.UserPages;
 using Microsoft.Win32;
+using PdfSharp.Snippets.Drawing;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ImageHelper = ManagamentCompanyDiplom.Classes.ImageHelper;
 
 namespace ManagamentCompanyDiplom.Pages
 {
@@ -173,12 +175,52 @@ namespace ManagamentCompanyDiplom.Pages
 
         private void btnUserProfileSaveChangedImage_Click(object sender, RoutedEventArgs e)
         {
+            Microsoft.Win32.OpenFileDialog openFileDialog = new Microsoft.Win32.OpenFileDialog();
+            openFileDialog.Filter = "Image files (*.png;*.jpeg;*.jpg)|*.png;*.jpeg;*.jpg|All files (*.*)|*.*";
 
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string selectedFilePath = openFileDialog.FileName;
+
+                // Сохраняем изображение в папку приложения и обновляем в базе данных
+                string imagesFolderPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ProfileImages");
+                if (!Directory.Exists(imagesFolderPath))
+                {
+                    Directory.CreateDirectory(imagesFolderPath);
+                }
+
+                string destFilePath = System.IO.Path.Combine(imagesFolderPath, System.IO.Path.GetFileName(selectedFilePath));
+                File.Copy(selectedFilePath, destFilePath, true);
+
+                // Обновляем изображение в базе данных
+                var currentUser = AppData.db.Users.FirstOrDefault(u => u.ID_Users == UserControlClass.IDUsers);
+                if (currentUser != null)
+                {
+                    currentUser.UsersImagePath = destFilePath;
+                    AppData.db.SaveChanges();
+                }
+
+                // Обновляем изображение на всех формах
+                ImageHelper.UpdateProfileImageOnAllForms(destFilePath);
+
+                // Обновляем изображение в текущем профиле
+                ProfileImage.Source = new BitmapImage(new Uri(destFilePath));
+                ProfileImageMenu.Source = new BitmapImage(new Uri(destFilePath));
+            }
         }
-
         private void btnUserMyPaymentPage_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new UserMyPaymentPage());
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            var user = AppData.db.Users.FirstOrDefault(x => x.ID_Users == UserControlClass.IDUsers);
+            if (user != null && !string.IsNullOrEmpty(user.UsersImagePath))
+            {
+                ProfileImage.Source = new BitmapImage(new Uri(user.UsersImagePath));
+                ImageHelper.UpdateProfileImageOnAllForms(user.UsersImagePath);
+            }
         }
     }
 }

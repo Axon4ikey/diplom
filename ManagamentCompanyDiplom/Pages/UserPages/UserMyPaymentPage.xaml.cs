@@ -57,6 +57,11 @@ namespace ManagamentCompanyDiplom.Pages.UserPages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            var currentUser = AppData.db.Users.FirstOrDefault(u => u.ID_Users == UserControlClass.IDUsers);
+            if (currentUser != null && !string.IsNullOrEmpty(currentUser.UsersImagePath))
+            {
+                ImageHelper.UpdateProfileImageInWindow(Window.GetWindow(this), currentUser.UsersImagePath);
+            }
             var users = AppData.db.Users.FirstOrDefault(x => x.ID_Users == UserControlClass.IDUsers);
             var flat = AppData.db.Flat.FirstOrDefault(x => x.ID_Users == users.ID_Users);
             var personalAccount = AppData.db.PersonalАccount.FirstOrDefault(pa => pa.ID_Flat == flat.ID_Flat);

@@ -133,6 +133,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\ImageHelper.cs" />
     <Compile Include="ModelBD\Accruals.cs">
       <DependentUpon>ModelDiplomBD.tt</DependentUpon>
     </Compile>

@@ -12,6 +12,7 @@ using iTextSharp.text.pdf;
 using PdfSharp.Pdf;
 using PdfSharp.Drawing;
 using System.Linq;
+using System.Windows.Media.Imaging;
 
 namespace ManagamentCompanyDiplom.Pages
 {
@@ -313,6 +314,15 @@ namespace ManagamentCompanyDiplom.Pages
         private void btnUserMyPaymentPage_Click(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new UserMyPaymentPage());
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            var currentUser = AppData.db.Users.FirstOrDefault(u => u.ID_Users == UserControlClass.IDUsers);
+            if (currentUser != null && !string.IsNullOrEmpty(currentUser.UsersImagePath))
+            {
+                ImageHelper.UpdateProfileImageInWindow(Window.GetWindow(this), currentUser.UsersImagePath);
+            }
         }
     }
 }

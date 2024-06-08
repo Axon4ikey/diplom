@@ -82,6 +82,11 @@ namespace ManagamentCompanyDiplom.Pages.UserPages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            var currentUser = AppData.db.Users.FirstOrDefault(u => u.ID_Users == UserControlClass.IDUsers);
+            if (currentUser != null && !string.IsNullOrEmpty(currentUser.UsersImagePath))
+            {
+                ImageHelper.UpdateProfileImageInWindow(Window.GetWindow(this), currentUser.UsersImagePath);
+            }
             ListViewMyServices.ItemsSource = AppData.db.ApplicationsForServices.
                 Where(x => x.ID_Users == UserControlClass.IDUsers).ToList();
         }

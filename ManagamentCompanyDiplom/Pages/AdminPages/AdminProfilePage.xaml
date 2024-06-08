@@ -7,6 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="700" 
       Background="White"
+      Loaded="Page_Loaded"
       d:DesignWidth="1140"
       Title="AdminProfilePage">
 
@@ -34,7 +35,6 @@
             </Border.Background>
             <Grid>
                 <Border
-                    Background="Wheat"
                     Grid.Column="1"
                     CornerRadius="90"
                     VerticalAlignment="Top"
@@ -44,10 +44,15 @@
                     Margin="0 20 0 0">
                     <StackPanel>
                         <Image 
-                            Source="/Images/mc.png"
                             Grid.Row="0"
+                            x:Name="ProfileImage"
+                            Stretch="UniformToFill"
                             Height="150"
-                            Width="150"/>
+                            Width="150">
+                            <Image.Clip>
+                                <EllipseGeometry Center="75,75" RadiusX="75" RadiusY="75"/>
+                            </Image.Clip>
+                        </Image>
                     </StackPanel>
                 </Border>
                 <StackPanel VerticalAlignment="Top"
@@ -267,7 +272,6 @@
         </Border>
         <!--Второй бордер-->
         <Border
-            Background="Wheat"
             Grid.Column="1"
             CornerRadius="90"
             VerticalAlignment="Top"
@@ -277,11 +281,15 @@
             Margin="0 20 0 0">
             <StackPanel>
                 <Image 
-                    Source="/Images/mc.png"
+                     x:Name="ProfileImageMenu"
+                    Stretch="UniformToFill"
                     Grid.Row="0"
                     Height="150"
-                    Width="150"
-                />
+                    Width="150">
+                    <Image.Clip>
+                        <EllipseGeometry Center="75,75" RadiusX="75" RadiusY="75"/>
+                    </Image.Clip>
+                </Image>
             </StackPanel>
         </Border>
 

@@ -135,6 +135,7 @@
           <Property Name="Phone" Type="varchar" MaxLength="50" />
           <Property Name="Login" Type="varchar" MaxLength="50" />
           <Property Name="Password" Type="varchar" MaxLength="50" />
+          <Property Name="UsersImagePath" Type="nvarchar(max)" />
           <Property Name="ID_StatusConfirmation" Type="int" />
           <Property Name="ID_Roles" Type="int" />
         </EntityType>
@@ -666,6 +667,7 @@
           <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="UsersImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ID_StatusConfirmation" Type="Int32" />
           <Property Name="ID_Roles" Type="Int32" />
           <NavigationProperty Name="ApplicationsForServices" Relationship="DiplomJobModel.FK_ApplicationsForServices_Users" FromRole="Users" ToRole="ApplicationsForServices" />
@@ -1004,6 +1006,7 @@
               <MappingFragment StoreEntitySet="Users">
                 <ScalarProperty Name="ID_Roles" ColumnName="ID_Roles" />
                 <ScalarProperty Name="ID_StatusConfirmation" ColumnName="ID_StatusConfirmation" />
+                <ScalarProperty Name="UsersImagePath" ColumnName="UsersImagePath" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Login" ColumnName="Login" />
                 <ScalarProperty Name="Phone" ColumnName="Phone" />

@@ -28,6 +28,7 @@ namespace ManagamentCompanyDiplom.ModelBD
         public string Phone { get; set; }
         public string Login { get; set; }
         public string Password { get; set; }
+        public string UsersImagePath { get; set; }
         public Nullable<int> ID_StatusConfirmation { get; set; }
         public Nullable<int> ID_Roles { get; set; }
     

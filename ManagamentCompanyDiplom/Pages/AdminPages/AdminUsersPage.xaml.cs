@@ -134,6 +134,11 @@ namespace ManagamentCompanyDiplom.Pages.AdminPages
 
         private void Page_Loaded(object sender, RoutedEventArgs e)
         {
+            var currentUser = AppData.db.Users.FirstOrDefault(u => u.ID_Users == UserControlClass.IDUsers);
+            if (currentUser != null && !string.IsNullOrEmpty(currentUser.UsersImagePath))
+            {
+                ImageHelper.UpdateProfileImageInWindow(Window.GetWindow(this), currentUser.UsersImagePath);
+            }
             var role = AppData.db.Users.Where(x => x.ID_Roles == 2).ToList();
 
             if (role.Count > 0)
