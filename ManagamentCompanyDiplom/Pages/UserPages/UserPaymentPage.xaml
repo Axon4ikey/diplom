@@ -21,7 +21,6 @@
                Panel.ZIndex="1"
                MouseUp="Image_MouseUp"
                Style="{StaticResource imgCloseAutorization}"/>
-
         <Border>
             <Border.Background>
                 <LinearGradientBrush StartPoint="0,0" 
@@ -85,7 +84,7 @@
                             HorizontalAlignment="Center">
                     <StackPanel VerticalAlignment="Top"
                                 HorizontalAlignment="Center"
-                                Margin="0 70 0 0">
+                                Margin="0 120 0 0">
                         <Button Name="btnUserPaymentsPage" 
                         Style="{StaticResource designButtonUsers}"
                                 Click="btnUserPaymentsPage_Click"
@@ -174,6 +173,28 @@
                             </WrapPanel>
                         </Button>
                     </StackPanel>
+                    <StackPanel VerticalAlignment="Top"
+            HorizontalAlignment="Center">
+                        <Button Name="btnUserMyPaymentPage"
+            Style="{StaticResource designButtonUsers}"
+                                Click="btnUserMyPaymentPage_Click"
+            Width="285"  
+            Height="50" 
+            Margin="0 0 0 0">
+                            <WrapPanel Height="50"
+                   Width="285">
+                                <Image Source="/Images/cvitanciya.png"
+                   Margin="40 5 0 0"
+                   Width="50"
+                   Height="40"/>
+                                <TextBlock
+                Text="Квитанции"
+                Margin="5 0 0 0"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"/>
+                            </WrapPanel>
+                        </Button>
+                    </StackPanel>
                 </StackPanel>
                 <StackPanel VerticalAlignment="Bottom"
                             HorizontalAlignment="Center">
@@ -198,6 +219,233 @@
                     </Button>
                 </StackPanel>
             </Grid>
+        </Border>
+        <Border 
+Background="White"
+Grid.Column="1"
+VerticalAlignment="Top"
+HorizontalAlignment="Center"
+Margin="0 50 0 0">
+            <StackPanel VerticalAlignment="Center"
+            HorizontalAlignment="Center">
+                <TextBlock Text="Оплата за коммунальные услуги"
+               Style="{StaticResource titleLeft}"
+               FontSize="30"
+               Grid.ColumnSpan="4"
+               VerticalAlignment="Top"
+               HorizontalAlignment="Center"
+               Foreground="#54bfb8"
+               Margin="10 0 0 0"/>
+                <Image Source="/Images/family.png"
+           Width="60"
+           Height="60"
+           VerticalAlignment="Center"
+           HorizontalAlignment="Left"
+           Margin="-50 -50 0 0"/>
+            </StackPanel>
+        </Border>
+        <Border 
+BorderThickness="1"
+BorderBrush="#acb0af"
+Margin="0 95 0 0"
+Width="600"
+Grid.Column="1"
+VerticalAlignment="Top"
+HorizontalAlignment="Center"
+CornerRadius="5">
+        </Border>
+        <!--третий бордер-->
+        <Border 
+     Background="White"
+     Grid.Column="1"
+     BorderThickness="2"
+     BorderBrush="#54bfb8"
+     CornerRadius="10 10 10 10"
+     VerticalAlignment="Center"
+     HorizontalAlignment="Center"
+     Margin="0 100 0 0">
+            <StackPanel>
+                <Grid
+             Width="700"
+             Height="350"
+             Margin="0 0 0 0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="100"/>
+                        <RowDefinition Height="150"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Border BorderThickness="1"
+                     BorderBrush="#acb0af"
+                     Margin="-100 0 0 0"
+                     Width="200"
+                     Grid.Row="0"
+                     Grid.Column="0"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Center"
+                     CornerRadius="5">
+                        <Grid Margin="7 9">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="/Images/water.png"
+                            Height="20"/>
+                            <TextBlock x:Name="txtUserMetersHotWater"
+                                       MouseDown="txtUserMetersHotWater_MouseDown"
+                                Text="Горячая вода"
+                                Style="{StaticResource textHint}"/>
+                            <TextBox x:Name="txbUserMetersHotWater"
+                                     TextChanged="txbUserMetersHotWater_TextChanged"
+                      Style="{StaticResource TextBox}"/>
+                        </Grid>
+                        
+                    </Border>
+                    <TextBlock 
+                        Name="lblHotWaterAmount" 
+                        Width="100"
+                        Style="{StaticResource textHint}"
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Height="25"
+           HorizontalAlignment="Right" 
+           VerticalAlignment="Center" 
+           Margin="0 0 15 0"
+                        FontFamily="Comic Sans MS"/>
+
+                    <Border BorderThickness="1"
+             BorderBrush="#acb0af"
+             Margin="-100 0 0 0"
+             Width="200"
+             Grid.Row="0"
+             Grid.Column="1"
+             VerticalAlignment="Center"
+             HorizontalAlignment="Center"
+             CornerRadius="5">
+                        <Grid Margin="7 9">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="/Images/water.png"
+                    Height="20"/>
+                            <TextBlock x:Name="txtUserMetersColdWater"
+                                       MouseDown="txtUserMetersColdWater_MouseDown"
+                                Text="Холодная вода"
+                                Style="{StaticResource textHint}"/>
+                            <TextBox x:Name="txbUserMetersColdWater"
+                                     TextChanged="txbUserMetersColdWater_TextChanged"
+                              Style="{StaticResource TextBox}"/>
+                        </Grid>
+                    </Border>
+                    <TextBlock 
+             Name="lblColdWaterAmount" 
+             Width="100"
+             Height="25"
+                        Style="{StaticResource textHint}"
+Grid.Column="1"
+HorizontalAlignment="Right" 
+                        FontFamily="Comic Sans MS"
+VerticalAlignment="Center" 
+Margin="0 0 15 0"/>
+                    <Border BorderThickness="1"
+                     BorderBrush="#acb0af"
+                     Margin="-100 0 0 0"
+                     Width="200"
+                     Grid.Row="1"
+                     Grid.Column="0"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Center"
+                     CornerRadius="5">
+                        <Grid Margin="7 9">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="/Images/electry.png"
+                            Height="20"/>
+                            <TextBlock x:Name="txtUserMetersElectry"
+                                       MouseDown="txtUserMetersElectry_MouseDown"
+                                Text="Электричество"
+                                Style="{StaticResource textHint}"/>
+                            <TextBox x:Name="txbUserMetersElectry"
+                                     TextChanged="txbUserMetersElectry_TextChanged"
+                              Style="{StaticResource TextBox}"/>
+                        </Grid>
+                    </Border>
+                    <TextBlock 
+             Name="lblElectryAmount" 
+             Width="100"
+             Height="25"
+HorizontalAlignment="Right" 
+VerticalAlignment="Center" 
+                        FontFamily="Comic Sans MS"
+Margin="0 0 15 0"
+                        Style="{StaticResource textHint}"
+Grid.Row="1"
+Grid.Column="0"/>
+                    <Border BorderThickness="1"
+                     BorderBrush="#acb0af"
+                     Margin="-100 0 0 0"
+                     Width="200"
+                     Grid.Row="1"
+                     Grid.Column="1"
+                     VerticalAlignment="Center"
+                     HorizontalAlignment="Center"
+                     CornerRadius="5">
+                        <Grid Margin="7 9">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Image Source="/Images/heating.png"
+                            Height="20"/>
+                            <TextBlock x:Name="txtUserMetersHeating"
+                                       MouseDown="txtUserMetersHeating_MouseDown"
+                                Text="Отопление"
+                                Style="{StaticResource textHint}"/>
+                            <TextBox x:Name="txbUserMetersHeating"
+                                     TextChanged="txbUserMetersHeating_TextChanged"
+                                  Style="{StaticResource TextBox}"/>
+                        </Grid>
+                    </Border>
+                    <TextBlock 
+             Name="lblHeatingAmount" 
+             Width="100"
+             Height="25"
+HorizontalAlignment="Right" 
+VerticalAlignment="Center" 
+                        FontFamily="Comic Sans MS"
+Margin="0 0 15 0"
+                        Style="{StaticResource textHint}"
+Grid.Row="1"
+Grid.Column="1"/>
+                    <TextBlock 
+                        Name="txtTotalAmount" 
+                        HorizontalAlignment="Center"
+                        Style="{StaticResource textHint}"
+                        VerticalAlignment="Top" 
+                        Grid.Row="2"
+                        Grid.ColumnSpan="3"
+                        Margin="-350 0 0 0" 
+                        Width="600" 
+                        FontSize="18"
+                        FontFamily="Comic Sans MS"
+                        Height="30" 
+                        TextAlignment="Center"/>
+                    <Button Content="Сформировать квитанцию" 
+                     Name="btnUsersImvoicePage"
+                            Click="btnUsersImvoicePage_Click"
+                     Grid.Row="2"
+                     Grid.ColumnSpan="3"
+                     Style="{StaticResource designButtonSaveChanged}"/>
+                </Grid>
+            </StackPanel>
         </Border>
     </Grid>
 </Page>

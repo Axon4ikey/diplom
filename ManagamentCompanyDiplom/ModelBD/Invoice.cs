@@ -12,13 +12,14 @@ namespace ManagamentCompanyDiplom.ModelBD
     using System;
     using System.Collections.Generic;
     
-    public partial class Payments
+    public partial class Invoice
     {
-        public int ID_Payments { get; set; }
-        public Nullable<decimal> Sum { get; set; }
-        public Nullable<System.DateTime> DataPayments { get; set; }
-        public Nullable<int> ID_Accruals { get; set; }
+        public int ID_Invoice { get; set; }
+        public Nullable<System.DateTime> InvoiceDate { get; set; }
+        public Nullable<decimal> TotalAmount { get; set; }
+        public string InvoicePath { get; set; }
+        public Nullable<int> ID_PersonalAccount { get; set; }
     
-        public virtual Accruals Accruals { get; set; }
+        public virtual PersonalАccount PersonalАccount { get; set; }
     }
 }

@@ -15,8 +15,11 @@ namespace ManagamentCompanyDiplom.ModelBD
     public partial class MetersData
     {
         public int ID_MetersData { get; set; }
+        public Nullable<decimal> ElectricityReading { get; set; }
+        public Nullable<decimal> ColdWaterReading { get; set; }
+        public Nullable<decimal> HotWaterReading { get; set; }
+        public Nullable<decimal> HeatingReading { get; set; }
         public Nullable<System.DateTime> DateOfTestimony { get; set; }
-        public Nullable<decimal> MeterReading { get; set; }
         public Nullable<int> ID_PersonalAccount { get; set; }
     
         public virtual PersonalАccount PersonalАccount { get; set; }

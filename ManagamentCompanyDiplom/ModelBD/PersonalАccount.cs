@@ -17,6 +17,7 @@ namespace ManagamentCompanyDiplom.ModelBD
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public PersonalАccount()
         {
+            this.Invoice = new HashSet<Invoice>();
             this.MetersData = new HashSet<MetersData>();
         }
     
@@ -29,6 +30,8 @@ namespace ManagamentCompanyDiplom.ModelBD
     
         public virtual Accruals Accruals { get; set; }
         public virtual Flat Flat { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Invoice> Invoice { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MetersData> MetersData { get; set; }
         public virtual TypeOfPersonalAccount TypeOfPersonalAccount { get; set; }

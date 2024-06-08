@@ -31,6 +31,7 @@ namespace ManagamentCompanyDiplom.ModelBD
         public virtual DbSet<ApplicationsForServices> ApplicationsForServices { get; set; }
         public virtual DbSet<Flat> Flat { get; set; }
         public virtual DbSet<House> House { get; set; }
+        public virtual DbSet<Invoice> Invoice { get; set; }
         public virtual DbSet<MetersData> MetersData { get; set; }
         public virtual DbSet<Payments> Payments { get; set; }
         public virtual DbSet<PersonalАccount> PersonalАccount { get; set; }

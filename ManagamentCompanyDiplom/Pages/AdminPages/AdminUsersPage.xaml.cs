@@ -159,7 +159,6 @@ namespace ManagamentCompanyDiplom.Pages.AdminPages
                 }
                 if (System.Windows.MessageBox.Show($"Вы действительно хотите удалить данного пользователя?", "Уведомление", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                 {
-                    // Проверка наличия связанных записей в таблице квартиры
                     foreach (var user in remove)
                     {
                         var relatedFlats = AppData.db.Flat.Where(f => f.ID_Users == user.ID_Users).ToList();

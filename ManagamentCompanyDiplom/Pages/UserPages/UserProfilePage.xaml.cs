@@ -1,9 +1,12 @@
 ﻿using ManagamentCompanyDiplom.Classes;
+using ManagamentCompanyDiplom.ModelBD;
 using ManagamentCompanyDiplom.Pages.UserPages;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -98,7 +101,8 @@ namespace ManagamentCompanyDiplom.Pages
 
         private void btnUserProfileSaveChanged_Click(object sender, RoutedEventArgs e)
         {
-            var editUsers = AppData.db.Users.FirstOrDefault(x => x.ID_Users == ID);
+            var editUsers = AppData.db.Users.
+                FirstOrDefault(x => x.ID_Users == ID);
             try
             {
                 if (txbUserProfileSurname.Text != "" &&
@@ -133,31 +137,6 @@ namespace ManagamentCompanyDiplom.Pages
             }
         }
 
-        private void btnUserProfileSaveChangedImage_Click(object sender, RoutedEventArgs e)
-        {
-            //OpenFileDialog openFileDialog = new OpenFileDialog();
-            //openFileDialog.Filter = "Image files (*.png;*.jpeg;*.jpg)|*.png;*.jpeg;*.jpg|All files (*.*)|*.*";
-
-            //if (openFileDialog.ShowDialog() == true)
-            //{
-            //    // Получение пути выбранного изображения
-            //    string sourcePath = openFileDialog.FileName;
-
-            //    // Генерация уникального имени файла для копии изображения
-            //    string uniqueFileName = Guid.NewGuid().ToString() + Path.GetExtension(sourcePath);
-
-            //    // Определение пути для сохранения копии изображения в локальной папке проекта
-            //    string destinationPath = "C:\\Users\\sheme\\OneDrive\\Рабочий стол\\C#\\Wiwi1\\Wiwi1\\Resources\\BuyersAvatars\\";
-            //    string destinationFilePath = Path.Combine(destinationPath, uniqueFileName);
-
-            //    // Копирование изображения в локальную папку проекта
-            //    File.Copy(sourcePath, destinationFilePath);
-
-            //    // Присвоение пути к элементу Image для отображения в приложении
-            //    ImagePath = destinationFilePath;
-            //}
-        }
-
         private void psbUserProfilePassword_PasswordChanged(object sender, RoutedEventArgs e)
         {
             if (txtPasswordBox.Visibility == Visibility.Visible)
@@ -190,6 +169,16 @@ namespace ManagamentCompanyDiplom.Pages
             imgClosedEye.Visibility = Visibility.Visible;
             txtPasswordBox.Visibility = Visibility.Collapsed;
             psbUserProfilePassword.Visibility = Visibility.Visible;
+        }
+
+        private void btnUserProfileSaveChangedImage_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnUserMyPaymentPage_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new UserMyPaymentPage());
         }
     }
 }

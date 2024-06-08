@@ -86,7 +86,7 @@
                             HorizontalAlignment="Center">
                     <StackPanel VerticalAlignment="Top"
                             HorizontalAlignment="Center"
-                            Margin="0 70 0 0">
+                            Margin="0 120 0 0">
                         <Button Name="btnUserProfileMSPage" 
                             Style="{StaticResource designButtonUsers}"
                                 Click="btnUserProfileMSPage_Click"
@@ -171,6 +171,28 @@
                                 Margin="5 0 0 0"
                                 VerticalAlignment="Center"
                                 HorizontalAlignment="Center"/>
+                            </WrapPanel>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Top"
+            HorizontalAlignment="Center">
+                        <Button Name="btnUserMyPaymentPage"
+                                Click="btnUserMyPaymentPage_Click"
+            Style="{StaticResource designButtonUsers}"
+            Width="285"  
+            Height="50"
+            Margin="0 0 0 0">
+                            <WrapPanel Height="50"
+                   Width="285">
+                                <Image Source="/Images/cvitanciya.png"
+                   Margin="40 5 0 0"
+                   Width="50"
+                   Height="40"/>
+                                <TextBlock
+                Text="Квитанции"
+                Margin="5 0 0 0"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"/>
                             </WrapPanel>
                         </Button>
                     </StackPanel>

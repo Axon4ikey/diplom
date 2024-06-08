@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace ManagamentCompanyDiplom.Pages.AdminPages
 {
-    /// <summary>
-    /// Логика взаимодействия для AdminProfilePage.xaml
-    /// </summary>
     public partial class AdminProfilePage : Page
     {
         int ID;

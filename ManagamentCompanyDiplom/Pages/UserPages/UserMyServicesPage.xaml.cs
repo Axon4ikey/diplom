@@ -16,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace ManagamentCompanyDiplom.Pages.UserPages
 {
-    /// <summary>
-    /// Логика взаимодействия для UserMyServicesPage.xaml
-    /// </summary>
     public partial class UserMyServicesPage : Page
     {
         public UserMyServicesPage()
@@ -118,6 +115,11 @@ namespace ManagamentCompanyDiplom.Pages.UserPages
 
                 ListViewMyServices.ItemsSource = filteredApplications;
             }
+        }
+
+        private void btnUserMyPaymentPage_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new UserMyPaymentPage());
         }
     }
 }

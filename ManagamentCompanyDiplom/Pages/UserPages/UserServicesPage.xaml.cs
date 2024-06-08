@@ -197,5 +197,10 @@ namespace ManagamentCompanyDiplom.Pages
         {
             NavigationService.Navigate(new UserMyServicesPage());
         }
+
+        private void btnUserMyPaymentPage_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new UserMyPaymentPage());
+        }
     }
 }

@@ -17,9 +17,6 @@ using System.Windows.Shapes;
 
 namespace ManagamentCompanyDiplom.Pages.AdminPages
 {
-    /// <summary>
-    /// Логика взаимодействия для AdminApplicationServicesPage.xaml
-    /// </summary>
     public partial class AdminApplicationServicesPage : Page
     {
         public AdminApplicationServicesPage()

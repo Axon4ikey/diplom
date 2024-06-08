@@ -10,7 +10,7 @@
             <PropertyRef Name="ID_Accruals" />
           </Key>
           <Property Name="ID_Accruals" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PeriodAccruals" Type="date" />
+          <Property Name="PeriodAccruals" Type="datetime" />
           <Property Name="Arrears" Type="decimal" Precision="10" Scale="2" />
           <Property Name="Sum" Type="decimal" Precision="10" Scale="2" />
         </EntityType>
@@ -43,13 +43,26 @@
           <Property Name="NumberHouse" Type="int" />
           <Property Name="Address" Type="varchar" MaxLength="255" />
         </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="ID_Invoice" />
+          </Key>
+          <Property Name="ID_Invoice" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="InvoiceDate" Type="datetime" />
+          <Property Name="TotalAmount" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="InvoicePath" Type="nvarchar" MaxLength="255" />
+          <Property Name="ID_PersonalAccount" Type="int" />
+        </EntityType>
         <EntityType Name="MetersData">
           <Key>
             <PropertyRef Name="ID_MetersData" />
           </Key>
           <Property Name="ID_MetersData" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="DateOfTestimony" Type="date" />
-          <Property Name="MeterReading" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="ElectricityReading" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="ColdWaterReading" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="HotWaterReading" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="HeatingReading" Type="decimal" Precision="10" Scale="2" />
+          <Property Name="DateOfTestimony" Type="datetime" />
           <Property Name="ID_PersonalAccount" Type="int" />
         </EntityType>
         <EntityType Name="Payments">
@@ -57,9 +70,8 @@
             <PropertyRef Name="ID_Payments" />
           </Key>
           <Property Name="ID_Payments" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="PaymentPeriod" Type="date" />
           <Property Name="Sum" Type="decimal" Precision="10" Scale="2" />
-          <Property Name="DataPayments" Type="date" />
+          <Property Name="DataPayments" Type="datetime" />
           <Property Name="ID_Accruals" Type="int" />
         </EntityType>
         <EntityType Name="PersonalАccount">
@@ -193,6 +205,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Invoice_PersonalАccount">
+          <End Role="PersonalАccount" Type="Self.PersonalАccount" Multiplicity="0..1" />
+          <End Role="Invoice" Type="Self.Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonalАccount">
+              <PropertyRef Name="ID_PersonalAccount" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="ID_PersonalAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_MetersData_PersonalАccount">
           <End Role="PersonalАccount" Type="Self.PersonalАccount" Multiplicity="0..1" />
           <End Role="MetersData" Type="Self.MetersData" Multiplicity="*" />
@@ -313,6 +337,7 @@
           <EntitySet Name="ApplicationsForServices" EntityType="Self.ApplicationsForServices" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Flat" EntityType="Self.Flat" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="House" EntityType="Self.House" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Invoice" EntityType="Self.Invoice" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="MetersData" EntityType="Self.MetersData" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Payments" EntityType="Self.Payments" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PersonalАccount" EntityType="Self.PersonalАccount" Schema="dbo" store:Type="Tables" />
@@ -342,6 +367,10 @@
           <AssociationSet Name="FK_Flat_Users" Association="Self.FK_Flat_Users">
             <End Role="Users" EntitySet="Users" />
             <End Role="Flat" EntitySet="Flat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Invoice_PersonalАccount" Association="Self.FK_Invoice_PersonalАccount">
+            <End Role="PersonalАccount" EntitySet="PersonalАccount" />
+            <End Role="Invoice" EntitySet="Invoice" />
           </AssociationSet>
           <AssociationSet Name="FK_MetersData_PersonalАccount" Association="Self.FK_MetersData_PersonalАccount">
             <End Role="PersonalАccount" EntitySet="PersonalАccount" />
@@ -411,6 +440,7 @@
           <EntitySet Name="ApplicationsForServices" EntityType="DiplomJobModel.ApplicationsForServices" />
           <EntitySet Name="Flat" EntityType="DiplomJobModel.Flat" />
           <EntitySet Name="House" EntityType="DiplomJobModel.House" />
+          <EntitySet Name="Invoice" EntityType="DiplomJobModel.Invoice" />
           <EntitySet Name="MetersData" EntityType="DiplomJobModel.MetersData" />
           <EntitySet Name="Payments" EntityType="DiplomJobModel.Payments" />
           <EntitySet Name="PersonalАccount" EntityType="DiplomJobModel.PersonalАccount" />
@@ -453,6 +483,10 @@
             <End Role="Flat" EntitySet="Flat" />
             <End Role="PersonalАccount" EntitySet="PersonalАccount" />
           </AssociationSet>
+          <AssociationSet Name="FK_Invoice_PersonalАccount" Association="DiplomJobModel.FK_Invoice_PersonalАccount">
+            <End Role="PersonalАccount" EntitySet="PersonalАccount" />
+            <End Role="Invoice" EntitySet="Invoice" />
+          </AssociationSet>
           <AssociationSet Name="FK_MetersData_PersonalАccount" Association="DiplomJobModel.FK_MetersData_PersonalАccount">
             <End Role="PersonalАccount" EntitySet="PersonalАccount" />
             <End Role="MetersData" EntitySet="MetersData" />
@@ -486,7 +520,7 @@
             <PropertyRef Name="ID_Accruals" />
           </Key>
           <Property Name="ID_Accruals" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PeriodAccruals" Type="DateTime" Precision="0" />
+          <Property Name="PeriodAccruals" Type="DateTime" Precision="3" />
           <Property Name="Arrears" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="Sum" Type="Decimal" Precision="10" Scale="2" />
           <NavigationProperty Name="Payments" Relationship="DiplomJobModel.FK_Payments_Accruals" FromRole="Accruals" ToRole="Payments" />
@@ -528,13 +562,27 @@
           <Property Name="Address" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Flat" Relationship="DiplomJobModel.FK_Flat_House" FromRole="House" ToRole="Flat" />
         </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="ID_Invoice" />
+          </Key>
+          <Property Name="ID_Invoice" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="InvoiceDate" Type="DateTime" Precision="3" />
+          <Property Name="TotalAmount" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="InvoicePath" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ID_PersonalAccount" Type="Int32" />
+          <NavigationProperty Name="PersonalАccount" Relationship="DiplomJobModel.FK_Invoice_PersonalАccount" FromRole="Invoice" ToRole="PersonalАccount" />
+        </EntityType>
         <EntityType Name="MetersData">
           <Key>
             <PropertyRef Name="ID_MetersData" />
           </Key>
           <Property Name="ID_MetersData" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="DateOfTestimony" Type="DateTime" Precision="0" />
-          <Property Name="MeterReading" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="ElectricityReading" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="ColdWaterReading" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="HotWaterReading" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="HeatingReading" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="DateOfTestimony" Type="DateTime" Precision="3" />
           <Property Name="ID_PersonalAccount" Type="Int32" />
           <NavigationProperty Name="PersonalАccount" Relationship="DiplomJobModel.FK_MetersData_PersonalАccount" FromRole="MetersData" ToRole="PersonalАccount" />
         </EntityType>
@@ -543,9 +591,8 @@
             <PropertyRef Name="ID_Payments" />
           </Key>
           <Property Name="ID_Payments" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="PaymentPeriod" Type="DateTime" Precision="0" />
           <Property Name="Sum" Type="Decimal" Precision="10" Scale="2" />
-          <Property Name="DataPayments" Type="DateTime" Precision="0" />
+          <Property Name="DataPayments" Type="DateTime" Precision="3" />
           <Property Name="ID_Accruals" Type="Int32" />
           <NavigationProperty Name="Accruals" Relationship="DiplomJobModel.FK_Payments_Accruals" FromRole="Payments" ToRole="Accruals" />
         </EntityType>
@@ -561,6 +608,7 @@
           <Property Name="ID_TypeOfPersonalAccount" Type="Int32" />
           <NavigationProperty Name="Accruals" Relationship="DiplomJobModel.FK_PersonalАccount_Accruals" FromRole="PersonalАccount" ToRole="Accruals" />
           <NavigationProperty Name="Flat" Relationship="DiplomJobModel.FK_PersonalАccount_Flat" FromRole="PersonalАccount" ToRole="Flat" />
+          <NavigationProperty Name="Invoice" Relationship="DiplomJobModel.FK_Invoice_PersonalАccount" FromRole="PersonalАccount" ToRole="Invoice" />
           <NavigationProperty Name="MetersData" Relationship="DiplomJobModel.FK_MetersData_PersonalАccount" FromRole="PersonalАccount" ToRole="MetersData" />
           <NavigationProperty Name="TypeOfPersonalAccount" Relationship="DiplomJobModel.FK_PersonalАccount_TypeOfPersonalAccount" FromRole="PersonalАccount" ToRole="TypeOfPersonalAccount" />
         </EntityType>
@@ -729,6 +777,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Invoice_PersonalАccount">
+          <End Type="DiplomJobModel.PersonalАccount" Role="PersonalАccount" Multiplicity="0..1" />
+          <End Type="DiplomJobModel.Invoice" Role="Invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PersonalАccount">
+              <PropertyRef Name="ID_PersonalAccount" />
+            </Principal>
+            <Dependent Role="Invoice">
+              <PropertyRef Name="ID_PersonalAccount" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_MetersData_PersonalАccount">
           <End Type="DiplomJobModel.PersonalАccount" Role="PersonalАccount" Multiplicity="0..1" />
           <End Type="DiplomJobModel.MetersData" Role="MetersData" Multiplicity="*" />
@@ -849,12 +909,26 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Invoice">
+            <EntityTypeMapping TypeName="DiplomJobModel.Invoice">
+              <MappingFragment StoreEntitySet="Invoice">
+                <ScalarProperty Name="ID_PersonalAccount" ColumnName="ID_PersonalAccount" />
+                <ScalarProperty Name="InvoicePath" ColumnName="InvoicePath" />
+                <ScalarProperty Name="TotalAmount" ColumnName="TotalAmount" />
+                <ScalarProperty Name="InvoiceDate" ColumnName="InvoiceDate" />
+                <ScalarProperty Name="ID_Invoice" ColumnName="ID_Invoice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="MetersData">
             <EntityTypeMapping TypeName="DiplomJobModel.MetersData">
               <MappingFragment StoreEntitySet="MetersData">
                 <ScalarProperty Name="ID_PersonalAccount" ColumnName="ID_PersonalAccount" />
-                <ScalarProperty Name="MeterReading" ColumnName="MeterReading" />
                 <ScalarProperty Name="DateOfTestimony" ColumnName="DateOfTestimony" />
+                <ScalarProperty Name="HeatingReading" ColumnName="HeatingReading" />
+                <ScalarProperty Name="HotWaterReading" ColumnName="HotWaterReading" />
+                <ScalarProperty Name="ColdWaterReading" ColumnName="ColdWaterReading" />
+                <ScalarProperty Name="ElectricityReading" ColumnName="ElectricityReading" />
                 <ScalarProperty Name="ID_MetersData" ColumnName="ID_MetersData" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -865,7 +939,6 @@
                 <ScalarProperty Name="ID_Accruals" ColumnName="ID_Accruals" />
                 <ScalarProperty Name="DataPayments" ColumnName="DataPayments" />
                 <ScalarProperty Name="Sum" ColumnName="Sum" />
-                <ScalarProperty Name="PaymentPeriod" ColumnName="PaymentPeriod" />
                 <ScalarProperty Name="ID_Payments" ColumnName="ID_Payments" />
               </MappingFragment>
             </EntityTypeMapping>

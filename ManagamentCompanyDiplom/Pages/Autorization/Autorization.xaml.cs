@@ -95,6 +95,7 @@ namespace ManagamentCompanyDiplom.Pages
                 {
                     UserControlClass.IDUsers = UsersObj.ID_Users;
                     AppData.db.SaveChanges();
+
                     switch (UsersObj.ID_Roles)
                     {
                         case 1:

@@ -75,7 +75,7 @@ namespace ManagamentCompanyDiplom.Pages.AdminPages
                     txtPasswordBox.Text == "" ||
                     psbAdminCreateUsersPassword.Password == "")
                 {
-                    MessageBox.Show("Заполните все поля", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
+                    MessageBox.Show("Заполните все поля", "Уведомление",  MessageBoxButton.OK, MessageBoxImage.Information);
                 }
                 else if (userToUpdate != null && userToUpdate.ID_StatusConfirmation == 2)
                 {

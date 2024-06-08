@@ -85,7 +85,7 @@
                             HorizontalAlignment="Center">
                     <StackPanel VerticalAlignment="Top"
                                 HorizontalAlignment="Center"
-                                Margin="0 70 0 0">
+                                Margin="0 120 0 0">
                         <Button Name="btnUserProfilePage" 
                                 Style="{StaticResource designButtonUsersProfile}"
                                 Width="285"
@@ -170,6 +170,28 @@
                                     Margin="5 0 0 0"
                                     VerticalAlignment="Center"
                                     HorizontalAlignment="Center"/>
+                            </WrapPanel>
+                        </Button>
+                    </StackPanel>
+                    <StackPanel VerticalAlignment="Top"
+            HorizontalAlignment="Center">
+                        <Button Name="btnUserMyPaymentPage"
+            Style="{StaticResource designButtonUsers}"
+            Width="285"  
+                                Click="btnUserMyPaymentPage_Click"
+            Height="50" 
+            Margin="0 0 0 0">
+                            <WrapPanel Height="50"
+                   Width="285">
+                                <Image Source="/Images/cvitanciya.png"
+                   Margin="40 5 0 0"
+                   Width="50"
+                   Height="40"/>
+                                <TextBlock
+                Text="Квитанции"
+                Margin="5 0 0 0"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"/>
                             </WrapPanel>
                         </Button>
                     </StackPanel>
@@ -323,6 +345,7 @@
             Margin="400 20 0 0">
             <StackPanel>
                 <Image 
+                    Name="ProfileImage"
                     Source="/Images/mc.png"
                     Grid.Row="0"
                     Height="150"
@@ -339,7 +362,7 @@
                 <Button Content="Загрузить изображение" 
                         Name="btnUserProfileSaveChangedImage"
                         Click="btnUserProfileSaveChangedImage_Click"
-                        Style="{StaticResource designButtonSaveChangedImage}"/>
+                        Style="{StaticResource designButtonSaveChangedImage}" Cursor="Hand"/>
             </StackPanel>
         </Border>
         <!--Третий бордер-->
