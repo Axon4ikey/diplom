@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManagamentCompanyDiplom", "
 EndProject
 Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Installer", "Installer\Installer.vdproj", "{E65F4DD7-7DD4-4974-8B37-2F96380E9F71}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{FDBCC634-46B2-473D-87F4-5FD4EAEF4CC5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,8 @@ Global
 		{EE8C013F-CB16-4DA1-9A5D-4CF4C59956DD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E65F4DD7-7DD4-4974-8B37-2F96380E9F71}.Debug|Any CPU.ActiveCfg = Debug
 		{E65F4DD7-7DD4-4974-8B37-2F96380E9F71}.Release|Any CPU.ActiveCfg = Release
+		{FDBCC634-46B2-473D-87F4-5FD4EAEF4CC5}.Debug|Any CPU.ActiveCfg = Debug
+		{FDBCC634-46B2-473D-87F4-5FD4EAEF4CC5}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

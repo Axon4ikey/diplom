@@ -43,7 +43,7 @@ namespace ManagamentCompanyDiplom.Pages.AdminPages
                 servicesadd.NameServices = txbAdminServicesName.Text;
                 servicesadd.Rate = Convert.ToDecimal(txbAdminServicesRate.Text);
                 
-                if (txbAdminServicesName.Text == "" ||
+                if (txbAdminServicesName.Text == "" &&
                     txbAdminServicesRate.Text == "")
                 {
                     MessageBox.Show("Заполните все поля!", "Уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
